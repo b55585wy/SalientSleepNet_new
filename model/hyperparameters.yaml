@@ -1,0 +1,24 @@
+preprocess:
+  sequence_epochs:      20
+  big_group_size:       40
+  enhance_window_stride: 10
+
+train:
+  kernel_size: 5
+  epochs: 60
+  batch_size: 8
+  u_depths: [4, 4, 4, 4]
+  u_inner_filter: 8
+  activation: "relu"
+  filters: [16, 32, 64, 128, 256]
+  mse_filters: [32, 24, 16, 8, 5]
+  pooling_sizes: [10, 8, 6, 4]
+  dilation_sizes: [1, 2, 3, 4]
+
+evaluation:
+  label_class: ["W", "N1", "N2", "N3", "REM"]
+
+class_weights: [1.0, 1.80, 1.0, 1.25, 1.20]
+patience: 5
+optimizer: "adam"
+sleep_epoch_len: 3000 
