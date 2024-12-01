@@ -1,0 +1,24 @@
+# 模型配置
+model:
+  input_channels: 2  # EEG + EOG
+  hidden_size: 256
+  state_size: 64
+  kernel_size: 3
+  num_heads: 4
+  window_size: 100
+  scales: [1, 2, 4, 8]
+  num_classes: 5  # 睡眠阶段数
+
+# 训练配置
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  epochs: 100
+  patience: 10
+
+# 数据配置
+data:
+  epoch_len: 3000  # 30秒 * 100Hz
+  train_path: "data/train"
+  valid_path: "data/valid"
+  test_path: "data/test"
